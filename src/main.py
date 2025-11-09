@@ -31,20 +31,12 @@ def scan_port(ip : str, port : int, timeout : int = 1):
         typer.echo(f"Error: Failed to create socket")
         return
 
-    banner = None
-
     try:
         s.settimeout(timeout)
         result = s.connect_ex((target, port))
         if result == 0:
             open_ports.append(port)
-            try:
-                banner_bytes = s.recv(1024)
-                if banner_bytes:
-                    banner = banner_bytes.decode(errors="ignore").strip()
-            except:
-                pass
-            typer.echo(f"Open: {port}/{banner}")
+            typer.echo(f"Open: {port}")
     except socket.timeout:
         return
     finally:

@@ -1,5 +1,4 @@
 LICENSE
-README.md
 pyproject.toml
 src/__init__.py
 src/main.py
