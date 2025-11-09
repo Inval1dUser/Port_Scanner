@@ -16,7 +16,7 @@ def check_ip(ip : str):
         typer.echo(f"Error: '{ip}' is not a valid IP address")
         sys.exit(1)
 
-def scan_port(ip : str, port : int, timeout : int = 1):
+def scan_port(ip : str, port : int, timeout = 1):
     """Scan a single port on the given IP address."""
     #typer.echo(f"Scanning port {port} on {ip}")
     try:
@@ -57,19 +57,16 @@ def cli_main(ip_address = typer.Argument(..., help="IP address to scan"),
         end_port = int(end_port)
     if type(concurrency) != int:
         concurrency = int(concurrency)
-    if type(timeout) != int:
+    if isinstance(timeout, float) != True:
         timeout = int(timeout)
+
 
     check_ip(ip_address)
     scan_main(ip_address, start_port, end_port, concurrency, timeout)
 
-def scan_main(ip_address : str, start_port : int, end_port : int, concurrency : int = 100, timeout : int = 1):
+def scan_main(ip_address : str, start_port : int, end_port : int, concurrency : int = 100, timeout = 1):
     """Scan a port on the given IP address."""
     check_ip(ip_address)
-
-
-
-
     if start_port < end_port:
             # start the threaded scan
         with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as executor:
@@ -77,9 +74,9 @@ def scan_main(ip_address : str, start_port : int, end_port : int, concurrency : 
                        f"threads: {concurrency}")
             for port in range(start_port, end_port + 1):
                 executor.submit(scan_port, ip_address, port, timeout=timeout)
-        typer.echo(f"Scan complete.  {len(open_ports)} open ports found.")
+        typer.echo(f"Scan complete.  {len(open_ports)} open port(s) found.")
     else:
         typer.echo("Error: Start port must be less than end port")
 
 if __name__ == '__main__':
-    scan_main(ip_address="8.8.8.8", start_port=1, end_port=1024, concurrency=1000, timeout=1)
+    app()
