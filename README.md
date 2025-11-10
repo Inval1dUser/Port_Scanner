@@ -19,7 +19,7 @@ Port scanning can be considered intrusive. Only scan hosts you own or are explic
 * Python 3.8+ (installed on most systems)
 * (Optional) `pip` for installing dev/test tools
 
-## Installation (example)
+# Installation (example)
 
 Clone the repo and run with Python:
 
@@ -39,7 +39,11 @@ or if you are on windows
 source venv/scripts/activate
 ```
 
-Install
+## Install
+- run the `build.sh` script
+
+### alternatively
+
 ```bash
 #install in editable mode
 pip install -e .
