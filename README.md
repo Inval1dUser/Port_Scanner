@@ -8,17 +8,13 @@ A minimal CLI port scanner written in Python.
 * Range and single-port support (example flags shown).
 * Fast configurable timeout and concurrency hints.
 * Minimal dependencies. Designed for learning and demonstrations.
-
-## Warning — Legal & Ethical
-
-Port scanning can be considered intrusive. Only scan hosts you own or are explicitly authorized to test. The author and this repository accept no liability for misuse.
-
+  
 ## Requirements
 
 * Python 3.8+ (installed on most systems)
-* (Optional) `pip` for installing dev/test tools
+* `pip` for installing dev/test tools
 
-# Installation (example)
+# Installation
 
 Clone the repo and run with Python:
 
