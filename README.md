@@ -70,6 +70,9 @@ Quick scan with a long timeout:
 ## Example output
 
 ```
+% spscan 8.8.8.8
+Starting scan of 8.8.8.8 ports 1-1024 
+
 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1024/1024 [00:11<00:00, 92.91it/s]
 Scan complete.  3 open port(s) found.
     Open Ports     
