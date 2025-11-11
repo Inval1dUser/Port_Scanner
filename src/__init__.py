@@ -3,6 +3,7 @@ import socket
 import typer
 import sys
 
+#this doesn't work FYI
 
 def grab_banner(ip : str, port : int, timeout = 1):
     banner = None
